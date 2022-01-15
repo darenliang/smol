@@ -1,0 +1,12 @@
+<script>
+	const subtitle = document.getElementById("subtitle");
+
+	fetch("https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}")
+		.then(data => data.json())
+		.then(response => {
+			subtitle.innerHTML = `${response.value} hits`;
+		})
+		.catch(_ => {
+			subtitle.innerHTML = "500 Internal Server Error";
+		});
+</script>

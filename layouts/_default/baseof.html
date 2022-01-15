@@ -20,5 +20,8 @@
 	{{ partial "header" . }}
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
+	{{ if .Site.Params.enableCounter }}
+	{{ partial "counter" . }}
+	{{ end }}
 </body>
 </html>
