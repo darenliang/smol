@@ -1,11 +1,5 @@
 <header>
-	<div id="subtitle" style="float: right;">
-		{{ if .Site.Params.enableCounter }}
-		<noscript>{{ .Site.Params.noJS }}</noscript>
-		{{ else }}
-		{{ .Site.Params.subtitle }}
-		{{ end }}
-	</div>
+	<div style="float: right;">{{ .Site.Params.subtitle }}</div>
 	<p>
 	<nav>
 			<a href="/"><b>Home</b></a>.

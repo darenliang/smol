@@ -1,12 +1,13 @@
 <script>
-	const subtitle = document.getElementById("subtitle");
+	const counter = document.getElementById("counter");
+	const url = "https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}";
 
-	fetch("https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}")
+	fetch(url)
 		.then(data => data.json())
 		.then(response => {
-			subtitle.innerHTML = `${response.value} hits`;
+			counter.innerHTML = `<a href="${url}">${response.value} hits</a>.`;
 		})
 		.catch(_ => {
-			subtitle.innerHTML = "500 Internal Server Error";
+			counter.innerHTML = `<a href="${url}">500 Internal Server Error</a>.`;
 		});
 </script>

@@ -3,5 +3,6 @@
 	{{- range .Site.Menus.footer }}
 	<a href="{{ .URL }}"><b>{{ .Name }}</b></a>.
         {{- end }}
+    <span id="counter"><noscript>{{ .Site.Params.noJS }}</noscript></span>
 	</p>
 </footer>
