@@ -1,3 +1,14 @@
+/* noto-sans-mono-regular - latin */
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+       url('/fonts/noto-sans-mono-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/noto-sans-mono-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 html {overflow-y: scroll}
 :root { --bgcolor: white; --fontcolor: #444; --linkcolor: #00e; --visitedcolor: #00e; --precolor: #fff; --prebgcolor: #000;}
 @media (prefers-color-scheme: dark) { :root { --bgcolor: black; --fontcolor: white; --linkcolor: #5bf; --visitedcolor: #5bf; --precolor: #fff; --prebgcolor: #383838;}}
