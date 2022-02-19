@@ -21,7 +21,9 @@
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
 	{{ if .Site.Params.enableCounter }}
-	{{ partial "counter" . }}
+		{{ $counter := resources.Get "js/counter.js" }}
+		{{ $counterProc:= $counter | resources.ExecuteAsTemplate "/js/counter.js" . }}
+		<script src="{{ "js/counter.js" | relURL }}?rnd={{ now.Unix }}"> </script>
 	{{ end }}
 </body>
 </html>
