@@ -24,7 +24,7 @@
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
 	{{ if .Site.Params.enableCounter }}
-	<script src="{{ "js/hit.js" | relURL }}?rnd={{ now.Unix }}"></script>
+	<script async src="{{ "js/hit.js" | relURL }}?rnd={{ now.Unix }}"></script>
 	{{ end }}
 </body>
 </html>
