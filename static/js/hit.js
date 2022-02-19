@@ -1,5 +1,7 @@
 const counter = document.getElementById("counter");
-const url = "https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}";
+const counterKey = document.querySelector("meta[name=\"counter\"]").content;
+
+const url = `https://counter.darenliang.com/hit/${counterKey}`;
 
 generateAnchor = text => `<a href="${url}">${text}</a>.`;
 counter.innerHTML = generateAnchor("Loading hits");

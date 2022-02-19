@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{{ if .Site.Params.enableCounter }}
+	<meta name="counter" content="{{ .Site.Params.counterKey }}">
+	{{ end }}
 	<title>{{ .Title }}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
@@ -21,9 +24,7 @@
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
 	{{ if .Site.Params.enableCounter }}
-		{{ $counterTemplate := resources.Get "js/counter.js" }}
-		{{ $counter:= $counterTemplate | resources.ExecuteAsTemplate "/js/counter.js" .  }}
-		<script src="{{ "js/counter.js" | relURL }}"></script>
+	<script src="{{ "js/hit.js" | relURL }}?rnd={{ now.Unix }}"></script>
 	{{ end }}
 </body>
 </html>
