@@ -1,0 +1,3 @@
+<script>
+const e=document.getElementById("counter"),n="https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}";generateAnchor=e=>`<a href="${n}">${e}</a>.`,e.innerHTML=generateAnchor("Loading hits"),fetch(n).then(e=>e.json()).then(n=>{e.innerHTML=generateAnchor(n.value+" hits")}).catch(n=>{e.innerHTML=generateAnchor("500 Internal Server Error")})
+</script>

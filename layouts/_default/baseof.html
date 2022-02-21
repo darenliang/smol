@@ -7,13 +7,12 @@
 	<title>{{ .Title }}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}?rnd={{ now.Unix }}">
 	{{ if .Site.Params.enableCounter }}
 		<link rel="preconnect" href="https://counter.darenliang.com">
-		<meta name="counter" content="{{ .Site.Params.counterKey }}">
 	{{ end }}
+	{{ partial "style" . }}
 	{{ range .Site.Params.customCSS -}}
-		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}">
+		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}" media="print" onload="this.media='all'; this.onload=null;">
 	{{- end }}
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
@@ -24,7 +23,7 @@
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
 	{{ if .Site.Params.enableCounter }}
-	<script async src="{{ "js/hit.js" | relURL }}?rnd={{ now.Unix }}"></script>
+		{{ partial "counter" . }}
 	{{ end }}
 </body>
 </html>
