@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	{{ if .Site.Params.enableCounter }}
-	<meta name="counter" content="{{ .Site.Params.counterKey }}">
-	{{ end }}
 	<title>{{ .Title }}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/noto-sans-mono-v14-latin-regular.woff2" crossorigin/>
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}?rnd={{ now.Unix }}">
+	{{ if .Site.Params.enableCounter }}
+		<link rel="preconnect" href="https://counter.darenliang.com">
+		<meta name="counter" content="{{ .Site.Params.counterKey }}">
+	{{ end }}
 	{{ range .Site.Params.customCSS -}}
 		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}">
 	{{- end }}
