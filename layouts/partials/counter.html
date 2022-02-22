@@ -1,3 +1,3 @@
 <script>
-const e=document.getElementById("counter"),n="https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}";generateAnchor=e=>`<a href="${n}">${e}</a>.`,e.innerHTML=generateAnchor("Loading hits"),fetch(n).then(e=>e.json()).then(n=>{e.innerHTML=generateAnchor(n.value+" hits")}).catch(n=>{e.innerHTML=generateAnchor("500 Internal Server Error")})
+(()=>{const b=document.getElementById("counter"),c=a=>'<a href="https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}">'+a+"</a>.";b.innerHTML=c("Loading hits");fetch("https://counter.darenliang.com/hit/{{ .Site.Params.counterKey }}").then(a=>a.json()).then(a=>{b.innerHTML=c(`${a.value} hits`)}).catch(()=>{b.innerHTML=c("500 Internal Server Error")})})();
 </script>
