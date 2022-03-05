@@ -19,6 +19,9 @@
 	{{- end }}
 </head>
 <body>
+	{{ if .Site.Params.enableTemporal }}
+		{{ partial "temporal" . }}
+	{{ end }}
 	{{ partial "header" . }}
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
