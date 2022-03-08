@@ -3,20 +3,9 @@
 		<article>
 			<h1>{{ .Title }}</h1>
 			{{ if and (.Params.showthedate) (.Site.Params.showDatesOnPosts) }}
-			<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>
+			<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
 			{{ end }}
-			{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) (.Site.Params.enableDisqusCount) }}
-				{{ if or (not .Params.showthedate) (not .Site.Params.showDatesOnPosts) }}
-				<b>
-				{{ else }}
-				-
-				{{ end }}
-				<noscript><style>.jsonly{display: none !important}</style></noscript>
-				<noscript><span>Enable JavaScript to see comments</span></noscript>
-				<a href="{{ .Permalink }}#disqus_thread"></a>
-			{{ end }}
-			</b>
-			{{ if isset .Params "tags" }}
+			{{ if .Params.tags }}
 			<br>
 				{{ range .Params.tags }}
 					<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
@@ -26,9 +15,15 @@
 				{{ .Content }}
 			</div>
 		</article>
-		{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) }}
+		{{ if and (not .Params.nocomments) (.Site.Params.utterancesRepo) }}
 		<h2>Comments</h2>
-		{{ partial "disqus.html" . }}
+		<script src="https://utteranc.es/client.js"
+				repo="{{ .Site.Params.utterancesRepo }}"
+				issue-term="pathname"
+				theme="preferred-color-scheme"
+				crossorigin="anonymous"
+				async>
+		</script>
 		{{ end }}
 	</main>
 {{ end }}

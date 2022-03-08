@@ -9,7 +9,7 @@
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-mono-v13-latin-regular.woff2" crossorigin/>
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-mono-v13-latin-700.woff2" crossorigin/>
-	{{ if .Site.Params.enableCounter }}
+	{{ if .Site.Params.counterKey }}
 		<link rel="preconnect" href="https://counter.darenliang.com">
 	{{ end }}
 	{{ partial "style" . }}
@@ -27,11 +27,8 @@
 	{{ partial "header" . }}
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
-	{{ if .Site.Params.enableCounter }}
+	{{ if .Site.Params.counterKey }}
 		{{ partial "counter" . }}
-	{{ end }}
-	{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) (.Site.Params.enableDisqusCount) }}
-	<script id="dsq-count-scr" src="//{{ .Site.DisqusShortname }}.disqus.com/count.js" async></script>
 	{{ end }}
 </body>
 </html>
