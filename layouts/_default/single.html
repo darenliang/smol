@@ -11,9 +11,10 @@
 				{{ else }}
 				-
 				{{ end }}
-				<a href="{{ .Permalink }}#disqus_thread">Cannot load comments</a>
+				<noscript><style>.jsonly{ display: none !important}</style></noscript>
+				<a href="{{ .Permalink }}#disqus_thread"><span class="jsonly">Loading comments</span><noscript>Cannot load comments</noscript></a>
 			{{ end }}
-            </b>
+			</b>
 			{{ if isset .Params "tags" }}
 			<br>
 				{{ range .Params.tags }}
