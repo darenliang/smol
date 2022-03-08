@@ -6,7 +6,12 @@
 			<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>
 			{{ end }}
 			{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) (.Site.Params.enableDisqusCount) }}
-			- <a href="{{ .Permalink }}#disqus_thread">Cannot load comments</a>
+				{{ if or (not .Params.showthedate) (not .Site.Params.showDatesOnPosts) }}
+				<b>
+				{{ else }}
+				-
+				{{ end }}
+				<a href="{{ .Permalink }}#disqus_thread">Cannot load comments</a>
 			{{ end }}
             </b>
 			{{ if isset .Params "tags" }}
