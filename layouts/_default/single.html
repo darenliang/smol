@@ -15,15 +15,8 @@
 				{{ .Content }}
 			</div>
 		</article>
-		{{ if and (not .Params.nocomments) (.Site.Params.utterancesRepo) }}
-		<h2>Comments</h2>
-		<script src="https://utteranc.es/client.js"
-				repo="{{ .Site.Params.utterancesRepo }}"
-				issue-term="pathname"
-				theme="preferred-color-scheme"
-				crossorigin="anonymous"
-				async>
-		</script>
+		{{ if and (not .Params.nocomments) (.Site.Params.giscusRepo) }}
+		{{ partial "giscus" . }}
 		{{ end }}
 	</main>
 {{ end }}
