@@ -12,6 +12,10 @@
 			<div>
 				{{ .Content }}
 			</div>
+			{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) }}
+			<h1>Comments</h1>
+			{{ template "_internal/disqus.html" . }}
+            {{ end }}
 		</article>
 	</main>
 {{ end }}
