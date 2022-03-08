@@ -30,5 +30,8 @@
 	{{ if .Site.Params.enableCounter }}
 		{{ partial "counter" . }}
 	{{ end }}
+	{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) (.Site.Params.enableDisqusCount) }}
+	<script id="dsq-count-scr" src="//{{ .Site.DisqusShortname }}.disqus.com/count.js" async></script>
+	{{ end }}
 </body>
 </html>
