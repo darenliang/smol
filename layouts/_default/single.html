@@ -11,8 +11,9 @@
 				{{ else }}
 				-
 				{{ end }}
-				<noscript><style>.jsonly{ display: none !important}</style></noscript>
-				<a href="{{ .Permalink }}#disqus_thread"><span class="jsonly">Loading comments</span><noscript>Cannot load comments</noscript></a>
+				<noscript><style>.jsonly{display: none !important}</style></noscript>
+				<noscript><span>Enable JavaScript to see comments</span></noscript>
+				<a href="{{ .Permalink }}#disqus_thread"></a>
 			{{ end }}
 			</b>
 			{{ if isset .Params "tags" }}
@@ -24,10 +25,10 @@
 			<div>
 				{{ .Content }}
 			</div>
-			{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) }}
-			<h1>Comments</h1>
-			{{ template "_internal/disqus.html" . }}
-            {{ end }}
 		</article>
+		{{ if and (not .Params.nodisqus) (.Site.DisqusShortname) }}
+		<h2>Comments</h2>
+		{{ partial "disqus.html" . }}
+		{{ end }}
 	</main>
 {{ end }}
