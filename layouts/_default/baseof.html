@@ -9,9 +9,6 @@
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-mono-v13-latin-regular.woff2" crossorigin/>
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-mono-v13-latin-700.woff2" crossorigin/>
-	{{ if .Site.Params.counterKey }}
-		<link rel="preconnect" href="https://counter.darenliang.com">
-	{{ end }}
 	{{ partial "style" . }}
 	{{ range .Site.Params.customCSS -}}
 		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}" media="print" onload="this.media='all'; this.onload=null;">
@@ -27,8 +24,5 @@
 	{{ partial "header" . }}
 	{{ block "main" . }}{{ end }}
 	{{ partial "footer" . }}
-	{{ if .Site.Params.counterKey }}
-		{{ partial "counter" . }}
-	{{ end }}
 </body>
 </html>

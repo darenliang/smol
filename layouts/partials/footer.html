@@ -2,7 +2,6 @@
 	<p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}"><b>{{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }}</b></a>.
 	{{- range .Site.Menus.footer }}
 	<a href="{{ .URL }}"><b>{{ .Name }}</b></a>.
-        {{- end }}
-    <b><span id="counter"><noscript>{{ .Site.Params.noJS }}</noscript></span></b>
+	{{- end }}
 	</p>
 </footer>
