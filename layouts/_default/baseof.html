@@ -7,8 +7,9 @@
 	<title>{{ .Title }}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-v18-latin-300.woff2" crossorigin/>
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-v18-latin-700.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-v15-latin-regular.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-v15-latin-700.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-mono-v13-latin-regular.woff2" crossorigin/>
 	{{ partial "style" . }}
 	{{ range .Site.Params.customCSS -}}
 		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}" media="print" onload="this.media='all'; this.onload=null;">
