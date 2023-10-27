@@ -5,7 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{{ .Title }}</title>
-	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	{{ with .Params.description }}
+    		<meta name="description" content="{{ . }}">
+	{{ else }}
+    		{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-v15-latin-regular.woff2" crossorigin/>
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-v15-latin-700.woff2" crossorigin/>
