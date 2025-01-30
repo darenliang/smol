@@ -10,7 +10,7 @@
     }
 </style>
 <div id="temporal" style="display: none;"><b>Happy Lunar New Year!</b></div>
-<div id="temporalSpacer" style="height: 0.1em;"></div>
+<div id="temporalSpacer" style="display: none; height: 0.1em;"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -19,6 +19,7 @@
         const today = new Date();
         if (today >= startDate && today <= endDate) {
             document.getElementById("temporal").style.display = "block";
+            document.getElementById("temporalSpacer").style.display = "block";
         }
     });
 </script>
