@@ -1,6 +1,18 @@
 <style>
-    a:hover, a:link {
-        transition: color .2s ease-out
+    a:active, a:hover, a:link, a:visited {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        transition: text-decoration-thickness .2s ease-out
+    }
+
+    a:hover {
+        text-decoration-thickness: 2px
+    }
+
+    ::selection {
+        background: #D4D4D4
     }
 
     p > code, pre {
@@ -16,12 +28,16 @@
         margin: auto
     }
 
-    body, button, code, figcaption, input, pre, textarea {
-        font-family: 'Space Grotesk', sans-serif
+    body, button, figcaption, input, textarea {
+        font-family: 'General Sans', sans-serif
     }
 
-    code {
-        font-family: 'Space Mono', monospace;
+    h1, h2, h3, h4, h5, h6, nav, .display {
+        font-family: 'Zodiak', serif
+    }
+
+    code, pre {
+        font-family: 'Commit Mono', monospace;
     }
 
     footer {
@@ -30,104 +46,119 @@
 
     @font-face {
         font-display: swap;
-        font-family: 'Space Grotesk';
+        font-family: 'Zodiak';
         font-style: normal;
-        font-weight: 400;
-        src: url('/fonts/space-grotesk-v15-latin-regular.eot');
-        src: url('/fonts/space-grotesk-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/space-grotesk-v15-latin-regular.woff2') format('woff2'),
-        url('/fonts/space-grotesk-v15-latin-regular.woff') format('woff'),
-        url('/fonts/space-grotesk-v15-latin-regular.ttf') format('truetype'),
-        url('/fonts/space-grotesk-v15-latin-regular.svg#SpaceGrotesk') format('svg');
+        font-weight: 100 900;
+        src: url('/fonts/zodiak-latin-variable.woff2') format('woff2');
     }
 
     @font-face {
         font-display: swap;
-        font-family: 'Space Grotesk';
-        font-style: normal;
-        font-weight: 700;
-        src: url('/fonts/space-grotesk-v15-latin-700.eot');
-        src: url('/fonts/space-grotesk-v15-latin-700.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/space-grotesk-v15-latin-700.woff2') format('woff2'),
-        url('/fonts/space-grotesk-v15-latin-700.woff') format('woff'),
-        url('/fonts/space-grotesk-v15-latin-700.ttf') format('truetype'),
-        url('/fonts/space-grotesk-v15-latin-700.svg#SpaceGrotesk') format('svg');
+        font-family: 'Zodiak';
+        font-style: italic;
+        font-weight: 100 900;
+        src: url('/fonts/zodiak-latin-variable-italic.woff2') format('woff2');
     }
-
 
     @font-face {
         font-display: swap;
-        font-family: 'Space Mono';
+        font-family: 'General Sans';
+        font-style: normal;
+        font-weight: 200 700;
+        src: url('/fonts/general-sans-latin-variable.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'General Sans';
+        font-style: italic;
+        font-weight: 200 700;
+        src: url('/fonts/general-sans-latin-variable-italic.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Commit Mono';
         font-style: normal;
         font-weight: 400;
-        src: url('/fonts/space-mono-v13-latin-regular.eot');
-        src: url('/fonts/space-mono-v13-latin-regular.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/space-mono-v13-latin-regular.woff2') format('woff2'),
-        url('/fonts/space-mono-v13-latin-regular.woff') format('woff'),
-        url('/fonts/space-mono-v13-latin-regular.ttf') format('truetype'),
-        url('/fonts/space-mono-v13-latin-regular.svg#SpaceMono') format('svg');
+        src: url('/fonts/commit-mono-latin-regular.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-display: swap;
+        font-family: 'Commit Mono';
+        font-style: italic;
+        font-weight: 400;
+        src: url('/fonts/commit-mono-latin-regular-italic.woff2') format('woff2');
     }
 
 
     html {
-        overflow-y: scroll
+        overflow-y: scroll;
+        color-scheme: light dark;
+        scrollbar-color: #C4C4C4 var(--bgcolor)
     }
 
     :root {
         --bgcolor: #FFF;
         --fontcolor: #333333;
-        --linkcolor: #3838cc;
-        --visitedcolor: #3838cc;
-        --hovercolor: #6617CB;
-        --precolor: #FFF;
-        --prebgcolor: #333333
+        --mutedcolor: #666666;
+        --precolor: #333333;
+        --prebgcolor: #F7F7F7;
+        --codebgcolor: #EBEBEB;
+        --prebordercolor: #DCDCDC
     }
 
     body {
-        max-width: 800px;
+        max-width: 700px;
         margin: 40px auto;
-        padding: 0 10px;
-        line-height: 24px;
+        padding: 0 20px;
+        font-size: 18px;
+        line-height: 29px;
         color: var(--fontcolor);
         background: var(--bgcolor)
     }
 
-    a:link {
-        text-decoration: none;
-        color: var(--linkcolor)
-    }
-
-    a:active, a:visited {
-        color: var(--visitedcolor)
-    }
-
-    a:hover {
-        color: var(--hovercolor)
-    }
-
-    h1, h2, h3 {
+    h1, h2, h3, h4, h5, h6 {
         line-height: 1.2
     }
 
     h1 {
-        font-size: 2.5em
+        font-size: 2.25em
     }
 
     h2 {
-        font-size: 2em
+        font-size: 1.8em
     }
 
     h3 {
-        font-size: 1.5em
+        font-size: 1.35em
     }
 
-    p > code {
-        padding: 2px
+    h4 {
+        font-size: 1.1em
+    }
+
+    h5 {
+        font-size: 1em
+    }
+
+    h6 {
+        font-size: .9em
+    }
+
+    :not(pre) > code {
+        padding: 2px 4px;
+        border-radius: 4px;
+        background: var(--codebgcolor);
+        font-size: .9em
     }
 
     pre {
-        padding: 24px;
-        overflow-x: auto
+        padding: 16px;
+        overflow-x: auto;
+        border: 1px solid var(--prebordercolor);
+        border-radius: 6px
     }
 
     article {
@@ -141,8 +172,41 @@
     }
 
     figcaption {
-        color: #888;
+        color: var(--mutedcolor);
         text-align: center
+    }
+
+    blockquote {
+        margin: 1.5em 0;
+        padding-left: 24px;
+        border-left: 2px solid var(--mutedcolor);
+        color: var(--mutedcolor)
+    }
+
+    table:not(.lntable):not(.jss_worksheet) {
+        border-collapse: collapse;
+        margin: 1.5em 0;
+        width: 100%
+    }
+
+    table:not(.lntable):not(.jss_worksheet) th,
+    table:not(.lntable):not(.jss_worksheet) td {
+        padding: 8px 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--prebordercolor)
+    }
+
+    table:not(.lntable):not(.jss_worksheet) th {
+        font-weight: 700;
+        border-bottom: 2px solid var(--mutedcolor)
+    }
+
+    p {
+        text-wrap: pretty
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        text-wrap: balance
     }
 
     img {
@@ -155,19 +219,27 @@
     }
 
     @media (prefers-color-scheme: dark) {
+        ::selection {
+            background: #4A4A4A
+        }
+
         :root {
-            --bgcolor: #0D1117;
+            --bgcolor: #111111;
             --fontcolor: #CCCCCC;
-            --linkcolor: #5bf;
-            --visitedcolor: #5bf;
-            --hovercolor: #FC5296;
+            --mutedcolor: #8A8A8A;
             --precolor: #CCCCCC;
-            --prebgcolor: #0D1117
+            --prebgcolor: #1C1C1C;
+            --codebgcolor: #2B2B2B;
+            --prebordercolor: #2E2E2E
+        }
+
+        html {
+            scrollbar-color: #3D3D3D var(--bgcolor)
         }
 
         button, input, textarea {
             border: 1px solid #ccc;
-            background-color: #0d1117;
+            background-color: #111111;
             color: #ccc
         }
 
@@ -192,10 +264,336 @@
 
     div.highlight {
         font-size: 14px;
-        line-height: 20px
+        line-height: 21px
     }
 
     div.highlight table pre {
         padding: 0
+    }
+
+    /* line-number table layout: one surface around the number and code columns */
+    div.highlight > div.chroma {
+        border: 1px solid var(--prebordercolor);
+        border-radius: 6px;
+        overflow-x: auto
+    }
+
+    div.highlight > div.chroma pre {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: none
+    }
+
+    div.highlight > div.chroma td {
+        padding: 16px 0
+    }
+
+    div.highlight > div.chroma td:first-child {
+        padding-left: 16px
+    }
+
+    div.highlight > div.chroma td:last-child {
+        padding-right: 16px
+    }
+
+    /* GitHub code syntax palette (chroma "github") */
+    .chroma {
+        color: #1f2328;
+        background-color: var(--prebgcolor);
+        -webkit-text-size-adjust: none
+    }
+
+    .chroma .lnlinks {
+        outline: none;
+        text-decoration: none;
+        color: inherit
+    }
+
+    .chroma .lntd {
+        vertical-align: top;
+        padding: 0;
+        margin: 0;
+        border: 0
+    }
+
+    .chroma .lntable {
+        border-spacing: 0;
+        padding: 0;
+        margin: 0;
+        border: 0
+    }
+
+    .chroma .line {
+        display: flex
+    }
+
+    .chroma .hl {
+        background-color: #dedede
+    }
+
+    .chroma .lnt, .chroma .ln {
+        white-space: pre;
+        -webkit-user-select: none;
+        user-select: none;
+        margin-right: .4em;
+        padding: 0 .4em;
+        color: #57606a
+    }
+
+    .chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt {
+        color: #cf222e
+    }
+
+    .chroma .na, .chroma .nc, .chroma .nx, .chroma .p, .chroma .go {
+        color: #1f2328
+    }
+
+    .chroma .no, .chroma .nd, .chroma .nt, .chroma .o, .chroma .ow, .chroma .or,
+    .chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo {
+        color: #0550ae
+    }
+
+    .chroma .nn {
+        color: #24292e
+    }
+
+    .chroma .nb, .chroma .ni, .chroma .nf, .chroma .fm {
+        color: #6639ba
+    }
+
+    .chroma .nl {
+        color: #900;
+        font-weight: bold
+    }
+
+    .chroma .bp {
+        color: #6a737d
+    }
+
+    .chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm {
+        color: #953800
+    }
+
+    .chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd,
+    .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1 {
+        color: #0a3069
+    }
+
+    .chroma .ss {
+        color: #032f62
+    }
+
+    .chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf {
+        color: #57606a
+    }
+
+    .chroma .gd {
+        color: #82071e;
+        background-color: #ffebe9
+    }
+
+    .chroma .gi {
+        color: #116329;
+        background-color: #dafbe1
+    }
+
+    .chroma .ge {
+        font-style: italic
+    }
+
+    .chroma .gs {
+        font-weight: bold
+    }
+
+    .chroma .gl {
+        text-decoration: underline
+    }
+
+    .chroma .w {
+        color: #fff
+    }
+
+    /* GitHub code syntax palette (chroma "github-dark") */
+    @media (prefers-color-scheme: dark) {
+        .chroma {
+            color: #e6edf3;
+            background-color: var(--prebgcolor)
+        }
+
+        .chroma .hl {
+            background-color: #6e7681
+        }
+
+        .chroma .lnt, .chroma .ln {
+            color: #8b949e
+        }
+
+        .chroma .k, .chroma .kd, .chroma .kn, .chroma .kr, .chroma .kt,
+        .chroma .nn, .chroma .o, .chroma .ow, .chroma .or {
+            color: #ff7b72
+        }
+
+        .chroma .kc, .chroma .kp, .chroma .no, .chroma .nv, .chroma .vc,
+        .chroma .vg, .chroma .vi, .chroma .vm, .chroma .py, .chroma .na,
+        .chroma .ld, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl,
+        .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si,
+        .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss {
+            color: #79c0ff
+        }
+
+        .chroma .nl {
+            color: #79c0ff;
+            font-weight: bold
+        }
+
+        .chroma .nc, .chroma .ne {
+            color: #f0883e
+        }
+
+        .chroma .nd, .chroma .nf, .chroma .fm {
+            color: #d2a8ff
+        }
+
+        .chroma .nb, .chroma .ni {
+            color: #ffa657
+        }
+
+        .chroma .nt {
+            color: #7ee787
+        }
+
+        .chroma .nx, .chroma .p {
+            color: #e6edf3
+        }
+
+        .chroma .bp, .chroma .go, .chroma .gp {
+            color: #8b949e
+        }
+
+        .chroma .l, .chroma .s, .chroma .m, .chroma .mb, .chroma .mf,
+        .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo {
+            color: #a5d6ff
+        }
+
+        .chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf {
+            color: #8b949e
+        }
+
+        .chroma .gd {
+            color: #ffa198;
+            background-color: #490202
+        }
+
+        .chroma .gi {
+            color: #56d364;
+            background-color: #0f5323
+        }
+
+        .chroma .ge {
+            color: #e6edf3;
+            font-style: italic
+        }
+
+        .chroma .gr {
+            color: #ffa198
+        }
+
+        .chroma .gh, .chroma .gu {
+            color: #79c0ff
+        }
+
+        .chroma .gt {
+            color: #ff7b72
+        }
+
+        .chroma .gs {
+            font-weight: bold
+        }
+
+        .chroma .gl {
+            text-decoration: underline
+        }
+
+        .chroma .w {
+            color: #6e7681
+        }
+    }
+
+    /* wide display math scrolls instead of overflowing the column */
+    mjx-container[display="true"] {
+        overflow-x: auto;
+        overflow-y: hidden
+    }
+
+    /* function-plot axis titles follow the text color */
+    svg text.x.axis-label, svg text.y.axis-label, svg text.top-right-legend {
+        fill: var(--fontcolor)
+    }
+
+    /* jspreadsheet tables follow the color scheme */
+    .jss_spreadsheet .jss_worksheet {
+        font-size: 16px
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .jss_spreadsheet {
+            color: var(--fontcolor)
+        }
+
+        .jss_spreadsheet .jss_worksheet {
+            background-color: var(--prebgcolor);
+            color: var(--fontcolor)
+        }
+
+        .jss_spreadsheet .jss_worksheet td {
+            background-color: transparent;
+            color: var(--fontcolor);
+            border-color: var(--prebordercolor)
+        }
+
+        .jss_spreadsheet .jss_worksheet tr:first-child td,
+        .jss_spreadsheet .jss_worksheet td.jss_row,
+        .jss_spreadsheet .jss_worksheet td.jss_selectall {
+            background-color: var(--codebgcolor);
+            color: var(--mutedcolor)
+        }
+    }
+
+    /* jspreadsheet clipboard helper: hidden, but keep it focusable */
+    textarea.jss_textarea {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: transparent;
+        opacity: 0;
+        resize: none
+    }
+
+    /* jump-to anchors get a subtle flash */
+    :target {
+        animation: target-flash 2s ease-out
+    }
+
+    @keyframes target-flash {
+        from {
+            background-color: var(--codebgcolor)
+        }
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+        outline: 2px solid var(--fontcolor);
+        outline-offset: 2px
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        :target {
+            animation: none
+        }
     }
 </style>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<html lang="{{ .Site.Language.Locale | default "en-us" }}">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,10 +10,17 @@
 	{{ else }}
     		{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ end }}
+	<meta property="og:site_name" content="{{ .Site.Title }}">
+	<meta property="og:title" content="{{ .Title }}">
+	<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+	<meta property="og:url" content="{{ .Permalink }}">
+	{{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+	<meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-v15-latin-regular.woff2" crossorigin/>
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-v15-latin-700.woff2" crossorigin/>
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/space-mono-v13-latin-regular.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/general-sans-latin-variable.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/zodiak-latin-variable.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/commit-mono-latin-regular.woff2" crossorigin/>
 	{{ partial "style" . }}
 	{{ range .Site.Params.customCSS -}}
 		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}" media="print" onload="this.media='all'; this.onload=null;">
