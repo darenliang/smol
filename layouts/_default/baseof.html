@@ -18,8 +18,8 @@
 	{{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 	<meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/general-sans-latin-variable.woff2" crossorigin/>
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/zodiak-latin-variable.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/telegraf-latin-regular.woff2" crossorigin/>
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/writer-latin-regular.woff2" crossorigin/>
 	<link rel="preload" as="font" type="font/woff2" href="/fonts/commit-mono-latin-regular.woff2" crossorigin/>
 	{{ partial "style" . }}
 	{{ range .Site.Params.customCSS -}}
