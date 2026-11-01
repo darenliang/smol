@@ -1,13 +1,12 @@
-<article>
+<article class="summary">
 	<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-	<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
-	{{ range .Params.tags }}
-	<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-	{{ end }}
-	<div class="content">
-		{{ .Summary | plainify }}
-		{{ if .Truncated }}
-			<a href="{{ .Permalink }}">Read more...</a>
+	<div class="summary-meta">
+		{{ if and (.Params.showthedate) (.Site.Params.showDatesOnPosts) }}
+		<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
+		{{ end }}
+		{{ range .Params.tags }}
+		<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
 		{{ end }}
 	</div>
+	<p class="summary-text">{{ .Params.description | default (.Summary | plainify | truncate 120) }}</p>
 </article>
