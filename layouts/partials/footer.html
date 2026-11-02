@@ -1,5 +1,5 @@
 <footer>
-	<p>This website is licensed under <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0 <img style="height:22px;margin-left:3px;vertical-align:top;display:inline;" src="/CC_BY_icon.svg"></a></p>
+	<p class="muted">This website is licensed under <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0 <img style="height:22px;margin-left:3px;vertical-align:top;display:inline;" src="/CC_BY_icon.svg"></a></p>
 	<p>{{ now.Year }} <a class="display" href="{{ .Site.BaseURL }}"><b>{{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }}</b></a>.
 	{{- range .Site.Menus.footer }}
 	<a class="display" href="{{ .URL }}"><b>{{ .Name }}</b></a>.

@@ -1,6 +1,6 @@
 <article class="summary">
 	<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-	<div class="summary-meta">
+	<div class="post-meta">
 		{{ if and (.Params.showthedate) (.Site.Params.showDatesOnPosts) }}
 		<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
 		{{ end }}

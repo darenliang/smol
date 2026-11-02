@@ -2,14 +2,15 @@
 	<main>
 		<article>
 			<h1>{{ .Title }}</h1>
-			{{ if and (.Params.showthedate) (.Site.Params.showDatesOnPosts) }}
-			<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
-			{{ end }}
-			{{ if .Params.tags }}
-			<br>
+			{{ if or (and (.Params.showthedate) (.Site.Params.showDatesOnPosts)) .Params.tags }}
+			<div class="post-meta">
+				{{ if and (.Params.showthedate) (.Site.Params.showDatesOnPosts) }}
+				<b><time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time></b>
+				{{ end }}
 				{{ range .Params.tags }}
-					<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-					{{ end }}
+				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+				{{ end }}
+			</div>
 			{{ end }}
 			<div class="content">
 				{{ .Content }}
